@@ -1,0 +1,127 @@
+TASK 3:Tic-Tac-Toe Web application
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 5px;
+      margin-bottom: 20px;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      font-size: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: #eee;
+    }
+
+    .cell:hover {
+      background-color: #ddd;
+    }
+
+    #status {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 1em;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tic-Tac-Toe</h1>
+  <div id="status">Player X's turn</div>
+  <div id="board" onclick="handleCellClick(event)">
+    <div class="cell" data-index="0"></div>
+    <div class="cell" data-index="1"></div>
+    <div class="cell" data-index="2"></div>
+    <div class="cell" data-index="3"></div>
+    <div class="cell" data-index="4"></div>
+    <div class="cell" data-index="5"></div>
+    <div class="cell" data-index="6"></div>
+    <div class="cell" data-index="7"></div>
+    <div class="cell" data-index="8"></div>
+  </div>
+  <button onclick="resetGame()">Restart Game</button>
+
+  <script>
+    let currentPlayer = 'X';
+    let gameBoard = ['', '', '', '', '', '', '', '', ''];
+    let gameActive = true;
+
+    function handleCellClick(event) {
+      const cellIndex = event.target.dataset.index;
+
+      if (gameBoard[cellIndex] === '' && gameActive) {
+        gameBoard[cellIndex] = currentPlayer;
+        event.target.textContent = currentPlayer;
+        checkWinner();
+        switchPlayer();
+        updateStatus();
+      }
+    }
+
+    function switchPlayer() {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
+
+    function updateStatus() {
+      document.getElementById('status').textContent = `Player ${currentPlayer}'s turn`;
+    }
+
+    function checkWinner() {
+      const winningCombos = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+      ];
+
+      for (const combo of winningCombos) {
+        const [a, b, c] = combo;
+        if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c]) {
+          gameActive = false;
+          document.getElementById('status').textContent = `Player ${currentPlayer} wins!`;
+        }
+      }
+
+      if (!gameBoard.includes('') && gameActive) {
+        gameActive = false;
+        document.getElementById('status').textContent = "It's a tie!";
+      }
+    }
+
+    function resetGame() {
+      currentPlayer = 'X';
+      gameBoard = ['', '', '', '', '', '', '', '', ''];
+      gameActive = true;
+
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach(cell => {
+        cell.textContent = '';
+        cell.style.backgroundColor = '#eee';
+      });
+
+      updateStatus();
+    }
+  </script>
+</body>
+</html>
