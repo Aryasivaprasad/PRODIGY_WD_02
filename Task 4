@@ -1,0 +1,123 @@
+TASK 4:Personal portfolio website
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Web Developer</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #299ce3;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="your-photo.jpg" alt="YOUR NAME ">
+    <h1>ARYA K YADAV</h1>
+    <p>Web Developer</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to My Portfolio!</h2>
+      <p>Passionate web developer with expertise in front-end and back-end technologies. I love creating interactive and user-friendly websites.</p>
+    </section>
+
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I am a web developer based in [Your Location]. I have a [Your Degree] degree in [Your Major] from [Your University]. With [X years] of experience in the industry, I have worked on a variety of projects, ranging from [brief description of projects].
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript (ES6+)</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>Database (SQL, MongoDB)</li>
+        <li>Git</li>
+        <li>Responsive Web Design</li>
+        <li>figma</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <p>Here are some of the projects I have worked on:</p>
+      <ul>
+        <li><a href="#">Project 1</a> - Brief description of the project.</li>
+        <li><a href="#">Project 2</a> - Brief description of the project.</li>
+        <!-- Add more projects as needed -->
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Name - Web Developer</p>
+  </footer>
+</body>
+</html>
